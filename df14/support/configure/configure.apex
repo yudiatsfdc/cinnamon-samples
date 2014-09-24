@@ -1,5 +1,5 @@
 // update orgsettings
 cinnamon.CN_CinnamonConfigApi.ConfigRequest req = new cinnamon.CN_CinnamonConfigApi.ConfigRequest();
 req.proxyUsername = '${cn.sauce.username}';
-req.proxyToken = '${cn.sauce.token}';
+req.proxyToken = 'f3ec8eee-c3c5-43aa-890f-2ab032400598';
 cinnamon.CN_CinnamonConfigApi.upsertConfig(req, null);
