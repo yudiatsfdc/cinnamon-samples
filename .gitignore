@@ -1,0 +1,22 @@
+#Referenced installed packages
+Referenced\ Packages/
+.metadata
+.settings/com.salesforce.ide.core.prefs
+#python files to be ignored
+*.py[cod~]
+#build properties for dev env to be ignored
+*/build/user.properties
+*/build/template
+#sublime text2 files to be ignored
+*.sublime-settings
+*.sublime-project
+*.sublime-workspace
+debug/
+config/
+.session
+.org_metadata
+.describe
+.apex_file_properties
+#OS junk files
+*.DS_Store
+
