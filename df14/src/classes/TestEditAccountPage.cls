@@ -8,18 +8,18 @@ public class TestEditAccountPage extends cinnamon.BaseTest {
     }
 
     public override String getStartingPath(cinnamon.Context context) {
-        return '/apex/editAccount?id=' + (String) context.get('accId');
+        Map<String, String> params = new Map<String, String>();
+        params.put('accId', context.getString('accId'));
+        EditAccountPageObject page = EditAccountPageObject.getInstance(context);
+        return page.getPathAndQuery( params );
     }
 
     public override void test(cinnamon.Context context) {
-        String accId = (String) context.get('accId');
+        EditAccountPageObject page = EditAccountPageObject.getInstance(context);
+        page.enterRequiredInfo('San Francisco')
+            .save();
 
-        EditAccountPageObject page = (EditAccountPageObject) context.getPageObject(EditAccountPageObject.class);
-        page.initializePageObject();
-
-        page.typeAccountSite('San Francisco')
-            .clickSave();
-
+        String accId = context.getString('accId');
         Account a = [select name, site, rating from Account where Id = :accId];
         System.assert(a != null);
         System.assertEquals(a.site, 'San Francisco');
@@ -27,7 +27,7 @@ public class TestEditAccountPage extends cinnamon.BaseTest {
 
     public override void tearDown(cinnamon.Context context) {
         List<ID> Ids = new List<ID>();
-        Ids.add((String) context.get('accId'));
+        Ids.add(context.getString('accId'));
         Database.delete(Ids);
     }
 }

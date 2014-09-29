@@ -6,6 +6,7 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
+		<members>EditAccountPage</members>
 		<members>MyVisualforcePageName</members>
 		<name>ApexPage</name>
 	</types>
