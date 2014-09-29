@@ -3,6 +3,7 @@
 	<types>
 		<members>EditAccountPageObject</members>
 		<members>TestEditAccountPage</members>
+		<members>TestNewAccountPage</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

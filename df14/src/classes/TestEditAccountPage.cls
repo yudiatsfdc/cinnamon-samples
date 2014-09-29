@@ -22,7 +22,7 @@ public class TestEditAccountPage extends cinnamon.BaseTest {
         String accId = context.getString('accId');
         Account a = [select name, site, rating from Account where Id = :accId];
         System.assert(a != null);
-        System.assertEquals(a.site, 'San Francisco');
+        System.assertEquals('San Francisco', a.name);
     }
 
     public override void tearDown(cinnamon.Context context) {

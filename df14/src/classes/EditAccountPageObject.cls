@@ -10,17 +10,21 @@ public class EditAccountPageObject extends cinnamon.PageObject {
     }
 
     public override String getPathAndQuery(Map<String, String> params) { 
-        return '/apex/editAccountPage?id=' + params.get('accId'); 
+        if (params==null) {
+            return '/apex/editAccountPage';
+        } else {
+            return '/apex/editAccountPage?id=' + params.get('accId'); 
+        }
     }    
 
     public EditAccountPageObject save() {
         saveBtn.click();
-        getWait().until(cinnamon.ExpectedConditions.titleTocontain(name));
+        getWait().until(cinnamon.ExpectedConditions.titleTocontain(this.name));
         return this;
     }
 
     public EditAccountPageObject enterRequiredInfo(String name) {
-        name = name;
+        this.name = name;
         accountName.sendKeys(name);
         return this;
     }
